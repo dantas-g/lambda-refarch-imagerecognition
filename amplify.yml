@@ -5,7 +5,6 @@ backend:
       commands:
         - npm install -g @aws-amplify/cli@latest
         - npm install -g @aws-amplify/cache
-        - pip install Jinja2==2.11.3
         - make init # install OS packages  and dev tools (awscli, sam-cli, linters, etc.)
     build:
       commands:
