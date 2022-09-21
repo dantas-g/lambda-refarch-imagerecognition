@@ -4,9 +4,13 @@ backend:
     preBuild:
       commands:
         - npm install -g @aws-amplify/cli@latest
+        - npm install -g @aws-amplify/cache
+        - pip install Jinja2==2.11.3
         - make init # install OS packages  and dev tools (awscli, sam-cli, linters, etc.)
     build:
       commands:
+        - npm install -g @aws-amplify/cache
+        - pip install Jinja2==2.11.3
         - "# Execute Amplify CLI with the helper script"
         - amplifyPush -e $AWS_BRANCH --simple
         ##
@@ -30,10 +34,12 @@ frontend:
   phases:
     preBuild:
       commands:
+        - npm install -g @aws-amplify/cache
         - cd src/react-frontend
         - npm install
     build:
       commands:
+        - npm install -g @aws-amplify/cache
         - npm run build
   artifacts:
     baseDirectory: src/react-frontend/build
